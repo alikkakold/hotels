@@ -43,13 +43,12 @@ INSTALLED_APPS = [
     'mainapp.apps.MainappConfig',
     'authapp.apps.AuthappConfig',
     'adminapp.apps.AdminappConfig',
-    'ordersapp.apps.OrdersappConfig',
-    'apiapp',
     'constructor_app.apps.ConstructorAppConfig',
     'django.contrib.sites',  # added for allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'supportapp'
 ]
 
 # Changes the built-in user model to ours

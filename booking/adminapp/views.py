@@ -12,8 +12,6 @@ from mainapp.models import Hotel, Room, RoomGallery, HotelFacility
 from geopy.geocoders import Nominatim
 from adminapp.forms import HotelForm, RoomForm, HotelFacilityForm
 from adminapp import utils
-from mainapp.utils import check_booking, insert_booking, send_confirmation_mail
-from ordersapp.models import Order
 
 from mainapp.models import Facility
 
@@ -33,43 +31,14 @@ def main(request):
                                       "price": room.price} for room in
                                      Room.objects.filter(hotel=hotel, is_active=True)]})
 
-    orders = [order for hotel in Hotel.objects.filter(user=request.user, is_active=True) for order in
-              Order.objects.filter(booking__hotel=hotel)]
 
     rooms = [room for hotel in Hotel.objects.filter(user=request.user, is_active=True) for room in
              Room.objects.filter(hotel=hotel, is_active=True)]
 
-    context = {'bookings': orders, 'hotels': hotels, 'days': days, 'rooms': rooms,
+    context = { 'hotels': hotels, 'days': days, 'rooms': rooms,
                'now': f'{now.hour}:{now.minute}', 'hotel_data': hotel_data}
 
-    if request.method == "POST":
-        check_in = request.POST.get('start', None)
-        check_out = request.POST.get('end', None)
-        room_id = request.POST.get('room', None)
-        hotel_id = request.POST.get('hotel', None)
-        client_name = request.POST.get('name', None)
-        email = request.POST.get('email', None)
-        phone = request.POST.get('phone', None)
-        time = request.POST.get('time', None)
-        comments = request.POST.get('comments', None)
-        country = request.POST.get('country', None)
-        address = request.POST.get('address', None)
 
-        room = get_object_or_404(Room,  id=room_id, is_active=True)
-        hotel = get_object_or_404(Hotel, id=hotel_id, is_active=True)
-
-        if room.hotel.id == hotel.id:
-            if check_booking(check_in, check_out, room_id, hotel_id):  # if there are not any reservations
-                insert_booking(hotel, check_in, check_out, room,
-                               f'{client_name}', email, phone, time,
-                               comments, country, address)
-                send_confirmation_mail(hotel_id, room_id, check_in, check_out, f'{client_name}')
-
-                return HttpResponseRedirect(reverse('management:main'))
-            else:
-                messages.error(request, 'Unable to create booking')
-        else:
-            messages.error(request, 'Unable to create booking')
 
     return render(request, 'adminapp/main.html', context)
 
@@ -133,17 +102,12 @@ def create_room(request):
                 name = f'{name} 1'
 
         # create room
-        Room.objects.create(hotel=hotel, name=name,
-                            price=int(price), description=description,
-                            adult=int(adults), kids=int(kids),
-                            infants=int(infants),
-                            is_active=True)
+        room = Room.objects.create(hotel=hotel, name=name,
+                                   price=int(price), description=description,
+                                   adult=int(adults), kids=int(kids),
+                                   infants=int(infants),
+                                   is_active=True)
 
-        room = Room.objects.get(hotel=hotel, name=name,
-                                price=int(price), description=description,
-                                adult=int(adults), kids=int(kids),
-                                infants=int(infants),
-                                is_active=True)
         count = 1
         for image in range(1, int(images) + 1):
             image_file = request.FILES.get(f'image-{image}')
@@ -311,13 +275,13 @@ def create_hotel(request):
 
         location = utils.get_address(location)
         hotel = Hotel.objects.create(user=request.user,
-                             name=hotel_name,
-                             description=description,
-                             stars=stars,
-                             banner=banner,
-                             location=location,
-                             phone_number=phone,
-                             is_active=True)
+                                     name=hotel_name,
+                                     description=description,
+                                     stars=stars,
+                                     banner=banner,
+                                     location=location,
+                                     phone_number=phone,
+                                     is_active=True)
 
         # adding hotel facilities
         for facility in facilities:
@@ -326,10 +290,7 @@ def create_hotel(request):
             if (facility.name in request.POST) and request.POST.get(facility.name):
                 HotelFacility.objects.create(hotel=hotel, facility=facility)
 
-
         return HttpResponseRedirect(reverse('management:main'))
-
-
 
     return render(request, 'adminapp/create_hotel.html', {'facilities': facilities})
 

@@ -38,23 +38,9 @@ def pack_project(request, id):
     os.mkdir(f'{settings.BASE_DIR}/media/preparing_projects/{order.id}')
     utils.copytree(template_path, prj_path)
 
-    # create Site model
-    try:
-        site = WebSite.objects.create(user=request.user, hotel=order.hotel,
-                                      token=abs(hash(f'{order.hotel.name}{order.template}{order.id}')) % (10 ** 9),
-                                      order=order)
-    except:  # if there is already such project
-        site = get_object_or_404(WebSite, order=order)
-
-    # add conf.json
-    data = {'hotel_id': order.hotel.id, 'api_token': site.token, 'host_domain_name': settings.DOMAIN_NAME,
-            'website_domain': site.url if site.url else '127.0.0.1:8001'}
-
-    with open(f'{prj_path}/data.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
-
     # copying projects to zip archive
     if order.status == Order.FORMING:
+
         utils.zipdir(order.hotel.name + str(order.id), prj_path,
                      f'{settings.BASE_DIR}/media/ready_projects', order.id)
 
