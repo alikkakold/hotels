@@ -44,12 +44,69 @@ INSTALLED_APPS = [
     'authapp.apps.AuthappConfig',
     'adminapp.apps.AdminappConfig',
     'constructor_app.apps.ConstructorAppConfig',
-    'django.contrib.sites',  # added for allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    # 'django.contrib.sites',  # added for allauth
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
     'supportapp'
 ]
+
+
+"""
+[Unit]
+Description=gunicorn daemon
+Requires=diplom.socket
+After=network.target
+
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/projects/prj/booking
+ExecStart=/home/projects/prj/booking/django2/bin/gunicorn \
+    --access-logfile - \
+    --workers 3 \
+    --bind unix:/home/projects/prj/booking/diplom.sock \
+    booking.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+___________
+[Unit]
+Description=gunicorn socket
+
+[Socket]
+ListenStream=/home/projects/prj/booking/diplom.sock
+
+[Install]
+WantedBy=sockets.target
+
+"""
+
+"""
+server {
+    listen 80;
+    server_name 89.108.103.117;
+
+    client_max_body_size 32m;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/projects/prj/booking/;
+    }
+
+    location /media/ {
+        root /home/projects/prj/booking/;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/projects/prj/booking/diplom.sock;
+    }
+}
+
+"""
 
 # Changes the built-in user model to ours
 AUTH_USER_MODEL = 'authapp.User'
@@ -62,7 +119,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+
+#    'mainapp.middleware.ExceptionHandlerMiddleware',
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -157,7 +218,9 @@ EMAIL_HOST_PASSWORD = 'book1234B'
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-DOMAIN_NAME = '127.0.0.1:8000'
+DOMAIN_NAME = '89.108.103.117'
+
+HANDLE_EXCEPTION = True
 
 # EMAIL_HOST = 'localhost'
 # EMAIL_PORT = '25'

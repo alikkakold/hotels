@@ -8,16 +8,16 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-<div class="header">
+<div class="header" style="background-image: url('http://127.0.0.1:8000{{ hotel.banner.url }}/')">
     <div class="logo">
 <!--        <img src="static/images/logo1.jpg" class="logo_img" alt="">-->
     </div>
-    <div class="welcome_block">
+    <div class="welcome_block" >
         <div class="welcome_big_message">
             welcome to {{hotel.name}}
         </div>
         <div class="welcome_small_message">
-            {{hotel.description|truncate_words:10}}
+            {{hotel.description|truncatewords:10}}
         </div>
     </div>
     <div class="socialIconsWrap">
@@ -78,14 +78,15 @@
                 {% for room in rooms %}
                 <div class="productUnit">
                     <div class="productUnitImage">
-                        <img src="http://127.0.0.1" alt="">
+
+                        <img src="http://{{domain}}{{ room.avatar.image.url }}/" alt="">
                     </div>
                     <div class="productUnitDescription">
                         <div class="productUnitName">
-                            Lorem ipsum.
+                            {{room.name}}
                         </div>
                         <div class="productUnitPrice">
-                            1200 руб.
+                            {{room.price}} руб.
                         </div>
                     </div>
                 </div>

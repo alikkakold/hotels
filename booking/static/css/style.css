@@ -158,7 +158,7 @@ header .navbar .nav-link {
     padding: 1.7rem 1rem;
     outline: none !important;
     font-size: 1rem;
-    color: white !important
+    color: white;
 }
 
 @media (max-width: 1199px) {
@@ -1878,6 +1878,15 @@ header .navbar .cta-btn a:hover {
 #geeks:hover {
     color: #ADE3BD;
     cursor: wait;
+}
+
+.header-light {
+    position: relative!important;
+}
+
+.header-light a{
+        color: black!important;
+
 }
 
 .room_description {

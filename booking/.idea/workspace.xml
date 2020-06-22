@@ -2,8 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe6ec7f8-dcd9-421f-a8d3-1d956aaef365" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/constructor_app/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/constructor_app/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructor_app/templates/constructor_app/orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainapp/middleware.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/preparing_projects/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supportapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/booking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/booking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/templates/adminapp/edit_hotel.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/templates/adminapp/edit_hotel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/templates/adminapp/includes/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/templates/adminapp/includes/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authapp/templates/authapp/letter.html" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/templates/authapp/letter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authapp/templates/authapp/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/templates/authapp/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constructor_app/templates/constructor_app/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/constructor_app/templates/constructor_app/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constructor_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/constructor_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constructor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/constructor_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/projects/templates2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/media/projects/templates2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/projects/templates2/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/media/projects/templates2/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supportapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/supportapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/supportapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supportapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/supportapp/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +46,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -32,22 +60,24 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/Учеба/HTML_CSS/l1/catalog.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../python_projects/shop" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\media\projects" />
-      <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\static\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\static\css\admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Serg\Documents\GitHub\hotels\booking\media\projects\templates2" />
+      <recent name="C:\Users\Serg\Documents\GitHub\hotels\booking\media\projects\templates2\templates" />
+      <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\media\projects" />
+      <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\static\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -114,6 +144,10 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -142,6 +176,10 @@
       <workItem from="1587727620600" duration="10572000" />
       <workItem from="1590822665761" duration="2250000" />
       <workItem from="1590931039593" duration="1287000" />
+      <workItem from="1591531209083" duration="8548000" />
+      <workItem from="1591632970193" duration="58000" />
+      <workItem from="1592329449803" duration="2663000" />
+      <workItem from="1592376113743" duration="12308000" />
     </task>
     <servers />
   </component>

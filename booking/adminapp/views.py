@@ -31,14 +31,11 @@ def main(request):
                                       "price": room.price} for room in
                                      Room.objects.filter(hotel=hotel, is_active=True)]})
 
-
     rooms = [room for hotel in Hotel.objects.filter(user=request.user, is_active=True) for room in
              Room.objects.filter(hotel=hotel, is_active=True)]
 
-    context = { 'hotels': hotels, 'days': days, 'rooms': rooms,
+    context = {'hotels': hotels, 'days': days, 'rooms': rooms,
                'now': f'{now.hour}:{now.minute}', 'hotel_data': hotel_data}
-
-
 
     return render(request, 'adminapp/main.html', context)
 
@@ -57,10 +54,6 @@ def ajax_check_address(request):
     else:
         coordinates = []
         message = 'Invalid address'
-
-    print(location)
-    print(address)
-    print()
 
     return JsonResponse({'coordinates': coordinates, 'address': location.address,
                          'message': message})
@@ -81,7 +74,6 @@ def create_room(request):
         kids = request.POST['kids']
         infants = request.POST['infants']
         images = request.POST.get('image_count', 0)
-        print(images)
 
         # try:
         # get hotel
@@ -172,7 +164,6 @@ def ajax_delete_image(request):
                                 image__contains=image.replace('/media/', '')).delete()
         return JsonResponse({'code': 200})
     except Exception as err:
-        print(err)
         return JsonResponse({'code': 500})
 
 
@@ -193,11 +184,9 @@ def edit_hotel(request, pk):
     form_facility = HotelFacilityForm(request.POST or None, request.FILES or None)
 
     if request.method == 'POST':
-        if form.is_valid() and form_facility.is_valid():
+        if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
-            obj2 = form_facility.save(commit=False)
-            obj2.save()
 
             messages.success(request, "You successfully updated the post")
             return HttpResponseRedirect(reverse('management:hotels'))
@@ -285,8 +274,6 @@ def create_hotel(request):
 
         # adding hotel facilities
         for facility in facilities:
-            print(facility)
-            print(request.POST)
             if (facility.name in request.POST) and request.POST.get(facility.name):
                 HotelFacility.objects.create(hotel=hotel, facility=facility)
 
