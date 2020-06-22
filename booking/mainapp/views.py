@@ -7,4 +7,6 @@ def main_page(request):
 
     return render(request, 'mainapp/index.html', {'user': user, 'title': title})
 
+def error_404(request):
+    return render(request, 'mainapp/404.html')
 
