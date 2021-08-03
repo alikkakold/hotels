@@ -1,0 +1,42 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% load query_booking %}
+{% load truncate_text %}
+
+
+{% block content %}
+    <main>
+        <div class="container-fluid">
+            <div class="card mb-4" style="margin-top: 30px">
+                <div class="card-header"><i class="fas fa-table mr-1"></i>Orders</div>
+                <div class="card-body">
+                    <div class="row">
+                        {% for order in orders %}
+                            <div class="col-sm-12 col-md-4 col-lg-4" style="margin-top: 10px; margin-bottom: 10px">
+                                <div class="list-item">
+                                    <p class="h3">
+                                        {{ order.hotel.name }} -
+
+                                        {% if order.status == order.FORMING  %}
+                                            forming
+                                        {% elif order.status == order.READY %}
+                                            completed
+                                        {% else %}
+                                        {% endif %}
+                                    </p>
+                                    <p class="h5">
+                                        {{ order.template.description|truncate_text }}
+                                    </p>
+                                    <p class="h4">
+                                        <a href="{% url 'constructor:about_template' order.template.id %}">{{ order.template.name }}</a>
+                                        <strong>{{ order.template.price }}$</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

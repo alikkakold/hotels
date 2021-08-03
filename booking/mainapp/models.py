@@ -47,8 +47,7 @@ class Hotel(models.Model):
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, default='')
-    name = models.CharField(verbose_name='Название отеля', max_length=64,
-                            unique=True)
+    name = models.CharField(verbose_name='Название отеля', max_length=64)
     phone_number = models.CharField(verbose_name='Номер телефона', default='',
                                     max_length=20)
     location = models.CharField(verbose_name='Адрес отеля', default='',

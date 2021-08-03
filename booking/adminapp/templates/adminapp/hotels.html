@@ -25,9 +25,6 @@
                             <p class="h5">
                                 {{ hotel.description|truncate_text }}
                             </p>
-                            <p class="h7">
-                                <a href="{% url 'main:bookings_main' hotel.pk %}">See Booking Page</a>
-                            </p>
                             <p class="h6">
                                 <a href="{% url 'constructor:main' %}?hotel_id={{ hotel.id }}">Create Web Site for this hotel</a>
                             </p>

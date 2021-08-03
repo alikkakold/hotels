@@ -27,7 +27,11 @@
                             </span>
                             <br>
                             <button type="button" style="margin-top: 20px" class="btn btn-outline-primary">
-                                <a href="{% url 'constructor:pack' order.id %}" class="hover-white">Buy</a>
+                                {% if hotel_id and template.id %}
+                                    <a href="{% url 'constructor:pack' %}?hotel_id={{ hotel_id }}&template_id={{ template.id }}" class="hover-white">Buy</a>
+                                {% else %}
+                                    Unavailable to create project
+                                {% endif %}
                             </button>
                         </div>
                     </div>

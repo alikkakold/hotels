@@ -42,14 +42,10 @@ def join(request):
 def login(request):
     login_form = UserLoginForm(data=request.POST)
 
-    print(login_form.is_valid())
-    print(login_form.errors)
 
     if request.method == 'POST' and login_form.is_valid():
         username = request.POST['username']
         password = request.POST['password']
-        print(username)
-        print(password)
 
         user = auth.authenticate(username=username, password=password)
 
@@ -64,15 +60,11 @@ def login(request):
 
 
 def send_verify_mail(user):
-    activation_key = UserActivation.objects.get(user=user).activation_key
-    verify_link = reverse('auth:verify', args=[user.email, activation_key])
     title = 'Account Verification {} {}'.format(user.name, user.surname)
 
-    print(os.path.join(settings.BASE_DIR, 'static', 'assets', 'letter.html'))
-
     html_m = render_to_string('authapp/letter.html',
-                              {'username': user.name,
-                               'link': settings.DOMAIN_NAME + verify_link}
+                              {'user': user, 'domain': settings.DOMAIN_NAME,
+                               'activation_key': UserActivation.objects.get(user=user).activation_key}
                               )
 
     return send_mail(title, '', settings.EMAIL_HOST_USER,
@@ -98,6 +90,7 @@ def verify(request, email, activation_key):
     except Exception as e:
         print(f'error activation user : {e.args}')
         return HttpResponseRedirect(reverse('main:main'))
+
 
 
 def logout(request):

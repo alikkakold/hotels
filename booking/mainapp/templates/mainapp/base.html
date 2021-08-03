@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{% static '/css/animate.css'%}">
     <link rel="stylesheet" href="{% static '/css/owl.carousel.min.css'%}">
     <link rel="stylesheet" href="{% static '/css/aos.css'%}">
+    <link rel="stylesheet" href="{% static '/css/form.css'%}">
     <link rel="stylesheet" href="{% static '/css/magnific-popup.css'%}">
     <link rel="stylesheet" href="{% static '/fonts/ionicons/css/ionicons.min.css'%}">
     <link rel="stylesheet" href="{% static '/fonts/fontawesome/css/font-awesome.min.css'%}">
@@ -38,15 +39,15 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarsExample05">
-                    <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                    <ul class="navbar-nav ml-auto pl-lg-5 pl-0"  style="color: white!important;">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'mainapp:main' %}">Home</a>
+                            <a class="nav-link active" style="color: white" href="{% url 'mainapp:main' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Booking Engine</a>
+                            <a class="nav-link" style="color: white" href="#">Booking Engine</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" style="color: white" href="#" id="dropdown04" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">{% if not user.is_authenticated %}
                                 Login
                                 {% else %}
@@ -64,10 +65,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" style="color: white" href="#">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" style="color: white" href="#">Contact</a>
                         </li>
                     </ul>
 

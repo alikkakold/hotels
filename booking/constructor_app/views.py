@@ -1,15 +1,21 @@
 import json
 import os
 
-from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
+from django.template import RequestContext, engines, Context
+from django.template.loader import render_to_string
+
+import mainapp
 from constructor_app import utils
 from constructor_app.models import Template, Order
-from mainapp.models import Hotel
+from mainapp.models import Hotel, HotelFacility, Room, RoomGallery
 
 from constructor_app.models import WebSite
 
 
+@login_required(login_url='/auth/login/')
 def main(request):
     templates = Template.objects.all()
     hotel_id = request.GET['hotel_id']
@@ -17,50 +23,71 @@ def main(request):
     return render(request, 'constructor_app/main.html', {'templates': templates, 'hotel_id': hotel_id})
 
 
+@login_required(login_url='/auth/login/')
 def about_template(request, id):
     # get template
     template = get_object_or_404(Template, id=id)
 
-    # create order for user
-    hotel = get_object_or_404(Hotel, id=request.GET['hotel_id'])
-    order = Order.objects.create(user=request.user, hotel=hotel, template=template)
+    hotel_id = request.GET.get('hotel_id', 0)
 
-    return render(request, 'constructor_app/detail.html', {'template': template, 'order': order})
+    return render(request, 'constructor_app/detail.html', {'template': template, 'hotel_id': hotel_id})
 
 
-def pack_project(request, id):
-    order = get_object_or_404(Order, user=request.user, id=id)
+@login_required(login_url='/auth/login/')
+def orders_list(request):
+    orders = Order.objects.filter(user=request.user)
 
-    prj_path = f'{settings.BASE_DIR}/media/preparing_projects/{order.id}'  # new project path
-    template_path = f'{settings.BASE_DIR}/{order.template.path}'
+    return render(request, 'constructor_app/orders.html', {'orders': orders})
 
-    # create project folder
-    os.mkdir(f'{settings.BASE_DIR}/media/preparing_projects/{order.id}')
-    utils.copytree(template_path, prj_path)
 
-    # create Site model
-    try:
-        site = WebSite.objects.create(user=request.user, hotel=order.hotel,
-                                      token=abs(hash(f'{order.hotel.name}{order.template}{order.id}')) % (10 ** 9),
-                                      order=order)
-    except:  # if there is already such project
-        site = get_object_or_404(WebSite, order=order)
+@login_required(login_url='/auth/login/')
+def pack_project(request):
+    if request.GET.get('hotel_id', 0) and request.GET.get('template_id', 0):
+        # get template
+        template = get_object_or_404(Template, id=request.GET.get('template_id'))
 
-    # add conf.json
-    data = {'hotel_id': order.hotel.id, 'api_token': site.token, 'host_domain_name': settings.DOMAIN_NAME,
-            'website_domain': site.url if site.url else '127.0.0.1:8001'}
+        # create order for user
+        hotel = get_object_or_404(Hotel, id=request.GET['hotel_id'])
+        order = Order.objects.create(user=request.user, hotel=hotel, template=template)
 
-    with open(f'{prj_path}/data.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+        prj_path = f'{settings.BASE_DIR}/media/preparing_projects/{order.id}'  # new project path
+        template_path = f'{settings.BASE_DIR}/{order.template.path}'
 
-    # copying projects to zip archive
-    if order.status == Order.FORMING:
-        utils.zipdir(order.hotel.name + str(order.id), prj_path,
-                     f'{settings.BASE_DIR}/media/ready_projects', order.id)
+        # create project folder
+        os.mkdir(prj_path)
+        utils.copytree(template_path, prj_path)
 
-        order.status = Order.READY
-        order.save()
+        # copying projects to zip archive
+        if order.status == Order.FORMING:
+            django_engine = engines['django']
+            template = django_engine.from_string(open(prj_path + '/index.html', 'r').read())
 
-    return render(request, 'constructor_app/result.html',
-                  {'order': order,
-                   'path': f'{settings.DOMAIN_NAME}/media/ready_projects/{order.hotel.name}{order.id}.zip'})
+            context = {'hotel': hotel, 'domain': settings.DOMAIN_NAME,
+                       'facilities': HotelFacility.objects.filter(hotel=hotel),
+                       'rooms': [{'id': room.id, 'name': room.name, 'avatar': '', 'price': room.price} for room in
+                                 Room.objects.filter(hotel=hotel, is_active=True)]}
+
+            for room in context['rooms']:
+                try:
+                    room['avatar'] = RoomGallery.objects.get(room__id=room['id'], is_avatar=True)
+                except mainapp.models.RoomGallery.DoesNotExist:
+                    room['avatar'] = RoomGallery.objects.filter(room__id=room['id'])[0]
+
+            data = template.render(context)
+
+            # rewrite page index.html
+            file = open(os.path.join(prj_path, 'index.html'), 'w')
+            file.write(str(data))
+            file.close()
+
+            utils.zipdir(order.hotel.name + str(order.id), prj_path,
+                         f'{settings.BASE_DIR}/media/ready_projects', order.id)
+
+            order.status = Order.READY
+            order.save()
+        else:
+            return redirect('main:404')
+
+        return render(request, 'constructor_app/result.html',
+                      {'order': order,
+                       'path': f'{settings.DOMAIN_NAME}/media/ready_projects/{order.hotel.name}{order.id}.zip'})

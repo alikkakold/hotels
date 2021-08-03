@@ -1,56 +1,104 @@
-<html>
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Title</title>
     <style>
-      @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-      body {
-          font-family: Roboto, sans-serif;
-      }
-      .content {
-        margin:auto;
-        width: 50%;
-      }
-      .letter {
-        text-align:center;
-        font-family:'Montserrat', sans-serif;;
-      }
-      .header{
-        font-weight:900;
-        font-size:25px;
-        width:100%;
-        background: #4481ff;
-        height:35px;
-        color:white;
-      }
-      .message{
-        line-height:28px;
-      }
+        body {
+            /*background-color: #f9f9f9;*/
+        }
 
-      a {
-        margin-top:25px;
-        margin-bottom:100px;
-      }
-      .content{
-        background:white;
-      }
+        .content {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+
+        .content {
+            margin: auto;
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 481px) {
+            .content {
+                width: 70%;
+            }
+        }
+
+        .header {
+            /*background-color: #b43de2;*/
+            color: white;
+        }
+
+        .font {
+            font-family: Gotham SSm A, Gotham SSm B, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 25px;
+            margin-left: 7px;
+        }
+
+        /*.btn {*/
+        /*    background-color: #b43de2;*/
+        /*    color: white;*/
+        /*}*/
+        p {
+            margin-left: 7px;
+        }
     </style>
-  </head>
-  <body>
-    <div class="letter">
-      <div class="content">
-        <div class="header">
-          <span>
-            Account Verify on Book!
-          </span>
-        </div>
-        <div class="message">
-          Hello, {{ username }}. <br>
-          Your profile activation link: <br>
+</head>
+<body>
+<table class="content">
+    <tbody>
+    <tr>
+        <td align="center">
+            <table style="width: 100%" class="header">
+                <tr>
+                    <td><p class="font" style="height:20px">Leiden - Verify account</p></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="font">Hello, {{ user.name }}!</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="message">
+                Thank you, for creating an account in Leiden.ru <br>
+                Please, verify your account.
+                <br>
+            </p>
+            <a href="http://{{ domain }}{% url 'auth:verify' user.email activation_key %}">
+                <button type="button" class="btn btn-primary">Verify</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
 
-          <a href="{{link}}" class="myButton">Verify!</a>
-
-        </div>
-      </div>
-    </div>
-  </body>
+</table>
+</body>
 </html>
