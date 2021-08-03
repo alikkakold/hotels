@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Espada</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+<div class="header" style="background-image: url('http://127.0.0.1:8000{{ hotel.banner.url }}/')">
+    <div class="logo">
+<!--        <img src="static/images/logo1.jpg" class="logo_img" alt="">-->
+    </div>
+    <div class="welcome_block" >
+        <div class="welcome_big_message">
+            welcome to {{hotel.name}}
+        </div>
+        <div class="welcome_small_message">
+            {{hotel.description|truncatewords:10}}
+        </div>
+    </div>
+    <div class="socialIconsWrap">
+        <a href="#">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-pinterest" aria-hidden="true"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-vk" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="funrideWrap">
+        <div class="funrideHead">Удобства</div>
+        <div class="funrideContent">
+            {% for facility in facilities %}
+            - {{ facility.facility.name }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="contentLeft">
+        <div class="contentMenu">
+            <ul>
+                <li>
+                    <a href="#">Меню</a>
+                </li>
+                <li>
+                    <a href="#">Главная</a>
+                </li>
+                <li>
+                    <a href="#">Комнаты</a>
+                </li>
+
+                <li>
+                    <a href="#">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="contentRight">
+        <div class="productsContainer">
+            <div class="productsTitle">
+                <span>Доступные комнаты</span>
+            </div>
+            <div class="productsWrap">
+                {% for room in rooms %}
+                <div class="productUnit">
+                    <div class="productUnitImage">
+
+                        <img src="http://{{domain}}{{ room.avatar.image.url }}/" alt="">
+                    </div>
+                    <div class="productUnitDescription">
+                        <div class="productUnitName">
+                            {{room.name}}
+                        </div>
+                        <div class="productUnitPrice">
+                            {{room.price}} руб.
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <span style="margin-left: 30px">&copy; Shark-Shop 2020 - All rights are sleeping </span>
+</div>
+</body>
+</html>
+

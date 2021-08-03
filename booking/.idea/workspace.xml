@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fe6ec7f8-dcd9-421f-a8d3-1d956aaef365" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/constructor_app/templates/constructor_app/orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainapp/middleware.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/preparing_projects/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supportapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/booking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/booking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/templates/adminapp/edit_hotel.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/templates/adminapp/edit_hotel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/templates/adminapp/includes/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/templates/adminapp/includes/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authapp/templates/authapp/letter.html" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/templates/authapp/letter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authapp/templates/authapp/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/templates/authapp/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/booking/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constructor_app/templates/constructor_app/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/constructor_app/templates/constructor_app/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constructor_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/constructor_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constructor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/constructor_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/projects/templates2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/media/projects/templates2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/projects/templates2/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/media/projects/templates2/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supportapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/supportapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/supportapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supportapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/supportapp/views.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1Z3hIshpCCIejX784s1y7Q30Ac3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../python_projects/shop" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\static\css\admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Serg\Documents\GitHub\hotels\booking\media\projects\templates2" />
+      <recent name="C:\Users\Serg\Documents\GitHub\hotels\booking\media\projects\templates2\templates" />
+      <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\media\projects" />
+      <recent name="C:\Users\Serg\Documents\GitHub\book.com\booking\static\js" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.task1">
+    <configuration name="task1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="booking" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="C:/Python/Alina" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:/Python/Alina/task1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="booking" type="Python.DjangoServer" factoryName="Django server">
+      <module name="booking" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.task1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe6ec7f8-dcd9-421f-a8d3-1d956aaef365" name="Default Changelist" comment="" />
+      <created>1584073609551</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584073609551</updated>
+      <workItem from="1584073614747" duration="2368000" />
+      <workItem from="1584164627210" duration="3133000" />
+      <workItem from="1584171724849" duration="2337000" />
+      <workItem from="1584182251773" duration="10000" />
+      <workItem from="1585827520942" duration="314000" />
+      <workItem from="1585848553644" duration="11660000" />
+      <workItem from="1585901139922" duration="11913000" />
+      <workItem from="1586002060912" duration="3044000" />
+      <workItem from="1586119045072" duration="246000" />
+      <workItem from="1586799365420" duration="2780000" />
+      <workItem from="1586847095366" duration="8342000" />
+      <workItem from="1587116418236" duration="9024000" />
+      <workItem from="1587191940483" duration="8466000" />
+      <workItem from="1587382718888" duration="18000" />
+      <workItem from="1587710377073" duration="4881000" />
+      <workItem from="1587727620600" duration="10572000" />
+      <workItem from="1590822665761" duration="2250000" />
+      <workItem from="1590931039593" duration="1287000" />
+      <workItem from="1591531209083" duration="8548000" />
+      <workItem from="1591632970193" duration="58000" />
+      <workItem from="1592329449803" duration="2663000" />
+      <workItem from="1592376113743" duration="12308000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/booking$task1.coverage" NAME="task1 Coverage Results" MODIFIED="1585926709664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/Python/Alina" />
+  </component>
+</project>
